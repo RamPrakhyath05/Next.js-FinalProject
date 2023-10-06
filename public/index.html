@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Chat Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a202c; /* Dark background color */
+            margin: 0;
+            padding: 0;
+            color: #d4d4d4; /* Light text color */
+        }
+
+        /* Chat container styles */
+        #chat {
+            height: 100vh;
+        }
+
+        /* Login Page styles */
+        #loginPage {
+            background-color: #1a202c; /* Dark background color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #loginBox {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            background-color: #2d3748; /* Darker background color */
+        }
+
+        #usernameInput {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #2d3748; /* Darker background color */
+            color: #d4d4d4; /* Light text color */
+        }
+
+        #loginButton {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px 20px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #loginButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chat Page styles */
+        #chatPage {
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        /* User List styles */
+        #userList {
+            background-color: #2d3748; /* Darker background color */
+            color: #d4d4d4; /* Light text color */
+            max-height: 50vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+        }
+
+        /* Chat Messages styles */
+        #chatMessages {
+            background-color: #2d3748; /* Darker background color */
+            color: #d4d4d4; /* Light text color */
+            flex: 1; /* Expand to fill available vertical space */
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+        }
+
+        #messageInput {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            background-color: #2d3748; /* Darker background color */
+            color: #d4d4d4; /* Light text color */
+        }
+
+        #sendButton {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px 20px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #sendButton:hover {
+            background-color: #0056b3;
+        }
+
+        #logoutButton {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #logoutButton:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="loginPage">
+        <div id="loginBox">
+            <h2 class="text-3xl font-semibold mb-4">Login</h2>
+            <input type="text" id="usernameInput" class="mb-4" placeholder="Enter your username">
+            <button id="loginButton" class="rounded-full">Login</button>
+        </div>
+    </div>
+
+    <!-- Chat Page -->
+    <div id="chatPage">
+        <div class="flex flex-col-reverse h-full"> <!-- Reversed column to place input at the bottom -->
+            <!-- Chat Messages -->
+            <div id="chatMessages" class="w-full p-4 flex-1">
+                <div id="messageList"></div>
+                <input type="text" id="messageInput" class="mb-4" placeholder="Type a message">
+                <button id="sendButton">Send</button>
+                <button id="logoutButton">Logout</button>
+            </div>
+            
+            <!-- User List -->
+            <div id="userList" class="w-1/4 p-4">
+                <h2 class="text-xl font-semibold mb-4">Users Online</h2>
+                <ul id="users"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include your JavaScript scripts here -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
