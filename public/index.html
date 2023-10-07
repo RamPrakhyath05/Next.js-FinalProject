@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Chat Application</title>
+    <title>Chat Application</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Custom styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #000; /* Black background color */
+            background-color: #000;
             margin: 0;
             padding: 0;
-            color: #fff; /* White text color */
+            color: #fff;
         }
 
-
-        /* Login Page styles */
         #loginPage {
-            background-color: #000; /* Black background color */
+            background-color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -31,7 +28,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 400px;
-            background-color: #333; /* Darker background color */
+            background-color: #333;
         }
 
         #usernameInput {
@@ -41,8 +38,8 @@
             width: 100%;
             margin-bottom: 10px;
             font-size: 16px;
-            background-color: #333; /* Darker background color */
-            color: #fff; /* White text color */
+            background-color: #333; 
+            color: #fff; 
         }
 
         #loginButton {
@@ -60,12 +57,11 @@
             background-color: #0056b3;
         }
 
-        /* Chat Page styles */
         #chatPage {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: stretch;
-            height: 100vh; /* Full-screen height */
+            height: 100vh;
         }
 
         /* User List styles */
@@ -160,7 +156,6 @@
 </head>
 <body>
 
-    <!-- Login Page -->
     <div id="loginPage">
         <div id="loginBox">
             <h2 class="text-3xl font-semibold mb-4">Login</h2>
@@ -169,18 +164,15 @@
         </div>
     </div>
 
-    <!-- Chat Page -->
     <div id="chatPage">
-        <div class="flex flex-col-reverse h-full"> <!-- Reversed column to place input at the bottom -->
-            <!-- Chat Messages -->
+        <div class="flex flex-col-reverse h-full"> 
             <div id="chatMessages" class="w-full p-4 flex-1">
                 <div id="messageList"></div>
                 <input type="text" id="messageInput" class="mb-4" placeholder="Type a message">
                 <button id="sendButton">Send</button>
                 <button id="logoutButton">Logout</button>
             </div>
-            
-            <!-- User List -->
+
             <div id="userList" class="w-1/4 p-4">
                 <h2 class="text-xl font-semibold mb-4">Users Online</h2>
                 <ul id="users"></ul>
@@ -188,7 +180,7 @@
         </div>
     </div>
 
-    <!-- Include your JavaScript scripts here -->
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="client.js"></script>
 </body>
