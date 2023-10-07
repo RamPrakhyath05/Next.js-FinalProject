@@ -9,20 +9,16 @@
         /* Custom styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #1a202c; /* Dark background color */
+            background-color: #000; /* Black background color */
             margin: 0;
             padding: 0;
-            color: #d4d4d4; /* Light text color */
+            color: #fff; /* White text color */
         }
 
-        /* Chat container styles */
-        #chat {
-            height: 100vh;
-        }
 
         /* Login Page styles */
         #loginPage {
-            background-color: #1a202c; /* Dark background color */
+            background-color: #000; /* Black background color */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -35,7 +31,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 400px;
-            background-color: #2d3748; /* Darker background color */
+            background-color: #333; /* Darker background color */
         }
 
         #usernameInput {
@@ -45,8 +41,8 @@
             width: 100%;
             margin-bottom: 10px;
             font-size: 16px;
-            background-color: #2d3748; /* Darker background color */
-            color: #d4d4d4; /* Light text color */
+            background-color: #333; /* Darker background color */
+            color: #fff; /* White text color */
         }
 
         #loginButton {
@@ -66,15 +62,16 @@
 
         /* Chat Page styles */
         #chatPage {
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: stretch;
+            height: 100vh; /* Full-screen height */
         }
 
         /* User List styles */
         #userList {
-            background-color: #2d3748; /* Darker background color */
-            color: #d4d4d4; /* Light text color */
+            background-color: #333; /* Darker background color */
+            color: #fff; /* White text color */
             max-height: 50vh;
             overflow-y: auto;
             border-radius: 10px;
@@ -85,8 +82,8 @@
 
         /* Chat Messages styles */
         #chatMessages {
-            background-color: #2d3748; /* Darker background color */
-            color: #d4d4d4; /* Light text color */
+            background-color: #333; /* Darker background color */
+            color: #fff; /* White text color */
             flex: 1; /* Expand to fill available vertical space */
             overflow-y: auto;
             border-radius: 10px;
@@ -101,8 +98,8 @@
             border-radius: 5px;
             width: 100%;
             font-size: 16px;
-            background-color: #2d3748; /* Darker background color */
-            color: #d4d4d4; /* Light text color */
+            background-color: #333; /* Darker background color */
+            color: #fff; /* White text color */
         }
 
         #sendButton {
@@ -134,6 +131,30 @@
 
         #logoutButton:hover {
             background-color: #cc0000;
+        }
+
+        /* Message styles */
+        .message {
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .message.username {
+            background-color: #007bff;
+        }
+
+        .message.username::before {
+            content: "You: ";
+            font-weight: bold;
+        }
+
+        .message.message-text::before {
+            content: "";
         }
     </style>
 </head>
